@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>سلة التسوق</h1>
+{% if cart.cartitem_set.all %}
+    {% for item in cart.cartitem_set.all %}
+    <div class="cart-item">
+        <h3>{{ item.product.name }}</h3>
+        <p>الكمية: {{ item.quantity }}</p>
+        <p>السعر: {{ item.product.price }} ريال</p>
+    </div>
+    {% endfor %}
+    <a href="{% url 'checkout' %}">الدفع</a>
+{% else %}
+    <p>سلة التسوق فارغة</p>
+{% endif %}
+{% endblock %}

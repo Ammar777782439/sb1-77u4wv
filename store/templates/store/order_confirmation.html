@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>تأكيد الطلب</h1>
+<p>شكراً لك على طلبك! رقم طلبك هو: {{ order.id }}</p>
+<h2>تفاصيل الطلب:</h2>
+{% for item in order.orderitem_set.all %}
+<div class="order-item">
+    <p>{{ item.product.name }} - الكمية: {{ item.quantity }} - السعر: {{ item.product.price }} ريال</p>
+</div>
+{% endfor %}
+{% endblock %}

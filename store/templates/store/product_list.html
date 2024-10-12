@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>قائمة المنتجات</h1>
+<div class="product-list">
+    {% for product in products %}
+    <div class="product-item">
+        <h2><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h2>
+        <p>السعر: {{ product.price }} ريال</p>
+        <a href="{% url 'add_to_cart' product.id %}">أضف إلى السلة</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

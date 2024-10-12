@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>الدفع</h1>
+<form method="post">
+    {% csrf_token %}
+    <h2>تفاصيل الطلب:</h2>
+    {% for item in cart.cartitem_set.all %}
+    <div class="order-item">
+        <p>{{ item.product.name }} - الكمية: {{ item.quantity }} - السعر: {{ item.product.price }} ريال</p>
+    </div>
+    {% endfor %}
+    <button type="submit">تأكيد الطلب</button>
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+<p>السعر: {{ product.price }} ريال</p>
+<p>{{ product.description }}</p>
+{% if product.image %}
+<img src="{{ product.image.url }}" alt="{{ product.name }}">
+{% endif %}
+<a href="{% url 'add_to_cart' product.id %}">أضف إلى السلة</a>
+{% endblock %}
